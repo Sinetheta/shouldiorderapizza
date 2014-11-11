@@ -1,0 +1,151 @@
+body {
+  font-family: 'Quattrocento', serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+  border-top: 1em solid #2ecc71;
+  background-color: #c0392b;
+}
+
+p {
+  line-height: 1.5;
+}
+
+p + p {
+  margin-top: 1.5em;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .container .container {
+    width: 100%;
+  }
+}
+
+header {
+  font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.1em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 1px #AF2620;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 2em;
+  }
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1em;
+  }
+}
+
+h1 a {
+  text-decoration: none;
+  color: #2ecc71;
+}
+
+h1 a em {
+  font-style: normal;
+  color: white;
+}
+
+.ribbon {
+  line-height: 1em;
+  position: relative;
+  width: 90%;
+  margin: 2em auto 1.75em;
+  padding: 1em 0;
+  text-align: center;
+  white-space: nowrap;
+  color: #222;
+  background: white;
+}
+
+@media (max-width: 767px) {
+  .ribbon {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .ribbon {
+    display: none;
+  }
+}
+
+.ribbon:before, .ribbon:after {
+  position: absolute;
+  top: 0.5em;
+  display: block;
+  content: "";
+  border: 1.5em solid #ffffff;
+}
+
+.ribbon:before {
+  left: -2.5em;
+  border-left-color: transparent;
+}
+
+.ribbon:after {
+  right: -2.5em;
+  border-right-color: transparent;
+}
+
+.panucci {
+  float: left;
+}
+
+@media (max-width: 1000px) {
+  .panucci {
+    width: 250px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .panucci {
+    display: none;
+  }
+}
+
+.should-i {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 5;
+  padding: 1em 2em;
+  border-collapse: collapse;
+  white-space: nowrap;
+  border: none;
+  border-radius: 6px;
+  background-color: #2ecc71;
+}
+
+@media (max-width: 767px) {
+  .should-i {
+    font-size: 24px;
+    margin: 0 auto;
+  }
+}
+
+footer {
+  height: 200px;
+  margin: 24px 0 0 0;
+  padding: 20px 0 0 0;
+  text-align: right;
+  color: #222;
+  background-color: #fff;
+}
