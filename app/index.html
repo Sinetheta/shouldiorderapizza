@@ -40,7 +40,20 @@
 
         <p>Take some of the pain out of making your meal decision and let us make that first step towards deciding whether or not you should order one. You have enough to deal with.</p>
 
-        <button class="should-i">Well, Should I?!</button>
+        <button class="should-i" ng-click="lookForPizza()">Well, Should I?!</button>
+      </div>
+
+      <div class="container" ng-show="hasSearched">
+        <p ng-show="looking">SEARCHING...</p>
+
+        <ul ng-hide="hideResults()">
+          <li ng-repeat="pizzaPlace in pizzaPlaces">
+            <h2><a ng-href="{{::pizzaPlace.url}}">{{::pizzaPlace.name}}</a></h2>
+            {{ pizzaPlace | json}}
+          </li>
+        </ul>
+
+        <p ng-hide="hideNoResults()">Sorry, we couldn't find any nearby pizza. But I guess you're used to hunting for your food anyways.</p>
       </div>
     </div>
 
@@ -55,6 +68,8 @@
   </footer>
 
     <link href='http://fonts.googleapis.com/css?family=Oswald:300,700|Lato:300' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -76,6 +91,9 @@
         <script src="scripts/bylines.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/pizza-app.js"></script>
+        <script src="scripts/location-service.js"></script>
+        <script src="scripts/google-maps-places.js"></script>
+        <script src="scripts/pizza-places-service.js"></script>
         <!-- endbuild -->
 </body>
 </html>

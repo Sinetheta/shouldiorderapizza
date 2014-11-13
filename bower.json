@@ -2,10 +2,8 @@
   "name": "shouldiorderapizza",
   "private": true,
   "dependencies": {
+    "angular": "~1.3.2",
     "jquery": "~1.11.1",
     "normalize-css": "~3.0.2"
-  },
-  "devDependencies": {
-    "angular": "~1.3.2"
   }
 }
