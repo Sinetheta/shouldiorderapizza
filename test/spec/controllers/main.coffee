@@ -5,15 +5,20 @@ describe 'Controller: MainCtrl', ->
   # load the controller's module
   beforeEach module 'shouldiorderapizzaApp'
 
-  MainCtrl = {}
-  scope = {}
+  $log = $scope = null
 
   # Initialize the controller and a mock scope
-  beforeEach inject ($controller, $rootScope) ->
-    scope = $rootScope.$new()
-    MainCtrl = $controller 'MainCtrl', {
-      $scope: scope
-    }
+  beforeEach inject ($controller, $rootScope, _$log_) ->
+    $scope = $rootScope.$new()
+    $log = _$log_
 
-  it 'should attach a list of awesomeThings to the scope', ->
-    expect(scope.awesomeThings.length).toBe 3
+    spyOn($log, 'log')
+
+    MainCtrl = $controller 'MainCtrl',
+      $log: $log
+      $scope: $scope
+
+  describe 'lookForPizza', ->
+    it 'should log to console', ->
+      $scope.lookForPizza()
+      expect($log.log).toHaveBeenCalled()

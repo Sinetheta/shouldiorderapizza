@@ -15,7 +15,7 @@
     <!-- endbuild -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
-  <body ng-app="shouldiorderapizzaApp">
+  <body ng-app="shouldiorderapizzaApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -38,8 +38,10 @@
 
         <p>Take some of the pain out of making your meal decision and let us make that first step towards deciding whether or not you should order one. You have enough to deal with.</p>
 
+        <button class="should-i" ng-click="lookForPizza()">Well, Should I?!</button>
       </div>
     </div>
+
     <footer>
       <div class="container">
         <p>Some spiel. Who cares even? No one.</p>
