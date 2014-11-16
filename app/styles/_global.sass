@@ -1,0 +1,25 @@
+body
+  font-family: $font-family-base
+  font-size: $font-size-base
+  font-weight: $font-weight-base
+  margin: 0
+  padding: 0
+  color: $text-color
+  border-top: .9em solid $brand-primary
+  background-color: $body-bg
+
+p
+  line-height: 1.5
+  + p
+    margin-top: 1em
+
+button
+  cursor: pointer
+
+.container
+  width: 85%
+  margin: 0 auto
+
+@media (max-width: $screen-xs-max)
+  .container .container
+    width: 100%
