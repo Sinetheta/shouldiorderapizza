@@ -2,7 +2,6 @@ angular.module('shouldiorderapizzacomApp')
   .controller 'MainCtrl',
     class MainCtrl
       constructor: (
-        @$log
       ) ->
 
       bylines: [
@@ -16,5 +15,3 @@ angular.module('shouldiorderapizzacomApp')
       chooseRandom: (array) ->
         array[Math.floor(Math.random() * array.length)]
 
-      lookForPizza: ->
-        @$log.log('gimme pizza!')

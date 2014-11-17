@@ -11,12 +11,10 @@ describe 'AnswerService', ->
 
   describe 'getAnswer', ->
     beforeEach ->
-      console.log 'before'
       $httpBackend.when('GET', AnswerService.url)
       .respond({"text": "Yep","explanation": "Because"})
 
     it 'should request an answer', ->
-      console.log 'it'
       $httpBackend.expectGET(AnswerService.url)
       AnswerService.getAnswer()
       $httpBackend.flush()
