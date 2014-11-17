@@ -5,7 +5,7 @@ describe 'Controller: MainCtrl', ->
   # load the controller's module
   beforeEach module 'shouldiorderapizzaApp'
 
-  $log = $scope = null
+  MainCtrl = $log = null
 
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope, _$log_) ->
@@ -20,5 +20,5 @@ describe 'Controller: MainCtrl', ->
 
   describe 'lookForPizza', ->
     it 'should log to console', ->
-      $scope.lookForPizza()
+      MainCtrl.lookForPizza()
       expect($log.log).toHaveBeenCalled()

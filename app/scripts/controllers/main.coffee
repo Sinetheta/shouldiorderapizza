@@ -1,4 +1,9 @@
 angular.module('shouldiorderapizzaApp')
-  .controller 'MainCtrl', ($scope, $log) ->
-    $scope.lookForPizza = ->
-      $log.log('gimme pizza!')
+  .controller 'MainCtrl',
+    class MainCtrl
+      constructor: (
+        @$log
+      ) ->
+
+      lookForPizza: ->
+        @$log.log('gimme pizza!')
