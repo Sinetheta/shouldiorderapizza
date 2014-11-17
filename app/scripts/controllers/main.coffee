@@ -2,7 +2,11 @@ angular.module('shouldiorderapizzacomApp')
   .controller 'MainCtrl',
     class MainCtrl
       constructor: (
+        @AnswerService
       ) ->
+
+      init: =>
+        @fetchAnswer()
 
       bylines: [
         'The Age-old Question',
@@ -15,3 +19,8 @@ angular.module('shouldiorderapizzacomApp')
       chooseRandom: (array) ->
         array[Math.floor(Math.random() * array.length)]
 
+      fetchAnswer: =>
+        @fetchingAnswer = true
+        @AnswerService.getAnswer().then (response) =>
+          @answer = response.data
+          @fetchingAnswer = false
