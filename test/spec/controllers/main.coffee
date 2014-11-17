@@ -18,6 +18,10 @@ describe 'Controller: MainCtrl', ->
       $log: $log
       $scope: $scope
 
+  describe 'chooseRandom', ->
+    it 'should return a random member of an array', ->
+      expect(MainCtrl.chooseRandom(['a', 'b'])).toMatch /a|b/
+
   describe 'lookForPizza', ->
     it 'should log to console', ->
       MainCtrl.lookForPizza()
