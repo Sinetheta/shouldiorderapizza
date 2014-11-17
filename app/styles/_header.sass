@@ -4,8 +4,8 @@ header
 h1
   font-family: $font-family-headings
   font-size: 4em
-  line-height: .5
   font-weight: $font-weight-headings
+  line-height: .5
   text-transform: uppercase
   text-shadow: 2px 2px 1px darken($body-bg, 10%)
 
@@ -13,8 +13,8 @@ h1
     font-size: 3.5em
 
   @media (max-width: $screen-sm-max)
-    text-align: left
     line-height: 1em
+    text-align: left
 
     span
       display: block
@@ -58,9 +58,9 @@ $ribbon-height: $ribbon-line-height + 2 * $ribbon-padding
     border: $ribbon-height/2 solid $ribbon-color
 
   &:before
-    left: -$ribbon-height * 0.9 // fixes subpixel alignment bug
+    left: -$ribbon-height * 0.9    // fixes subpixel alignment bug
     border-left-color: transparent
 
   &:after
-    right: -$ribbon-height * 0.9 // fixes subpixel alignment bug
+    right: -$ribbon-height * 0.9    // fixes subpixel alignment bug
     border-right-color: transparent
