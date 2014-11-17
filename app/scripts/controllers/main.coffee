@@ -1,4 +1,4 @@
-angular.module('shouldiorderapizzaApp')
+angular.module('shouldiorderapizzacomApp')
   .controller 'MainCtrl',
     class MainCtrl
       constructor: (
