@@ -1,5 +1,7 @@
 angular.module('shouldiorderapizzacomApp')
-  .service 'AnswerService',
+  .service 'AnswerService', [
+    '$http'
+
     class AnswerService
       constructor: (
         @$http
@@ -9,3 +11,4 @@ angular.module('shouldiorderapizzacomApp')
 
       getAnswer: ->
         @$http.get(@url)
+  ]

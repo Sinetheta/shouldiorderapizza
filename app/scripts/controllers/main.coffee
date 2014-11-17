@@ -1,5 +1,6 @@
 angular.module('shouldiorderapizzacomApp')
-  .controller 'MainCtrl',
+  .controller 'MainCtrl', [
+    'AnswerService'
     class MainCtrl
       constructor: (
         @AnswerService
@@ -24,3 +25,4 @@ angular.module('shouldiorderapizzacomApp')
         @AnswerService.getAnswer().then (response) =>
           @answer = response.data
           @fetchingAnswer = false
+  ]
