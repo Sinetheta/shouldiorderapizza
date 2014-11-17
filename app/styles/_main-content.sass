@@ -2,26 +2,34 @@
   float: left
 
   @media (max-width: $screen-md-max)
-    width: 250px
-    padding-right: 20px
-
-  @media (max-width: $screen-md-max)
-    width: 200px
+    width: 225px
+    padding-right: 10px
     padding-bottom: 50px
 
   @media (max-width: $screen-sm-max)
-    position: absolute
-    top: 40px
-    left: 5%
-    float: none
-    width: 120px
+    display: none
+
+.lil-panucci
+  display: none
+
+  @media (max-width: $screen-sm-max)
+    display: inline
+    float: left
+    width: 130px
+    margin-top: 10px
+    margin-left: 15%
+
+  @media (max-width: $screen-xs-max)
+    width: 100px
+    margin-top: -5px
+    margin-left: 5%
 
 .should-i
   font-family: $font-family-headings
   font-size: 2em
   font-weight: $font-weight-base
   display: block
-  margin: 0.5em 0
+  margin: 1.5em auto
   padding: 1em 2em
   color: $text-color
   border: none
@@ -30,4 +38,3 @@
 
   @media (max-width: $screen-sm-max)
     font-size: $font-size-large
-    margin: 0 auto

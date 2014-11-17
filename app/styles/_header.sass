@@ -3,24 +3,24 @@ header
 
 h1
   font-family: $font-family-headings
-    font-size: 3.5em
+  font-size: 4em
+  line-height: .5
   font-weight: $font-weight-headings
   text-transform: uppercase
   text-shadow: 2px 2px 1px darken($body-bg, 10%)
 
   @media (max-width: $screen-md-max)
-    font-size: 2.25em
-    line-height: 1em
+    font-size: 3.5em
 
   @media (max-width: $screen-sm-max)
-    font-size: 3em
-    margin-left: 32%
     text-align: left
+    line-height: 1em
+
+    span
+      display: block
 
   @media (max-width: $screen-xs-max)
-    font-size: 2.5em
-    margin-left: 32%
-    text-align: left 
+    font-size: 2.35em
 
   a
     text-decoration: none
@@ -30,8 +30,6 @@ h1
       font-style: normal
       color: $text-color
 
-    span
-      display: block
 
 
 $ribbon-color: $white
@@ -47,9 +45,6 @@ $ribbon-height: $ribbon-line-height + 2 * $ribbon-padding
   padding: $ribbon-padding 0
   color: $gray
   background: $ribbon-color
-
-  @media (max-width: $screen-sm-max)
-    font-size: $font-size-small
 
   @media (max-width: $screen-xs-max)
     display: none
