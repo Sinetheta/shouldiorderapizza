@@ -1,1 +1,1 @@
-angular.module('shouldiorderapizzaApp', [])
+angular.module('shouldiorderapizzacomApp', [])
