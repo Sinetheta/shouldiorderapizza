@@ -64,3 +64,12 @@ $ribbon-height: $ribbon-line-height + 2 * $ribbon-padding
   &:after
     right: -$ribbon-height * 0.9    // fixes subpixel alignment bug
     border-right-color: transparent
+
+.container-mobile
+  margin: 0 auto
+
+  @media (max-width: $screen-sm-max)
+    width: 410px
+
+  @media (max-width: $screen-xs-max)
+    width: 350px
