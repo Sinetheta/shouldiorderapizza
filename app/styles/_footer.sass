@@ -11,13 +11,15 @@ footer
 
 .share-links
   list-style: none
+  padding-left: 0
+
 
   li
     display: inline-block
-    margin-left: 0.25em
 
-    &:first-child
-      margin-left: -37px
+    + li
+      margin-left: 5px
+
 
   $social-link-diameter: 60px
   a
@@ -33,7 +35,7 @@ footer
     background-color: $brand-secondary
 
     &:hover
-      opacity: 0.8
       color: $brand-primary
+      background-color: lighten($brand-secondary, 10%)
 
 
