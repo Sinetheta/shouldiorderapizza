@@ -33,26 +33,68 @@
     </header>
 
     <div class="container main-content">
-      <img src="images/pizza-chef.png" alt="Pizza chef" class="panucci" />
+      <div class="grid grid-left">
+        <img src="images/pizza-chef.png" alt="Pizza chef" class="panucci" />
+      </div>
+      <div class="grid grid-right">
+        <p ng-hide="main.hasUserAsked">With so many food options out there nowadays, deciding whether or not to order a pizza can be a stressful and degrading experience.</p>
 
-      <p ng-hide="main.hasUserAsked">With so many food options out there nowadays, deciding whether or not to order a pizza can be a stressful and degrading experience.</p>
+        <p ng-hide="main.hasUserAsked">Take some of the shame away by letting us decide whether or not you should order one. You have enough to deal with.</p>
 
-      <p ng-hide="main.hasUserAsked">Take some of the shame away by letting us decide whether or not you should order one. You have enough to deal with.</p>
+        <button
+          ng-hide="main.hasUserAsked"
+          class="pizza-button should-i"
+          ng-click="main.hasUserAsked = true"
+        >Well, Should I?!</button>
 
-      <button
-        ng-hide="main.hasUserAsked"
-        class="should-i"
-        ng-click="main.hasUserAsked = true"
-      >Well, Should I?!</button>
+        <h2 ng-show="main.hasUserAsked && main.answer">{{main.answer.text}}</h2>
+        <p ng-show="main.hasUserAsked && main.answer">{{main.answer.explanation}}</p>
 
-      <h2 ng-show="main.hasUserAsked && main.answer">{{main.answer.text}}</h2>
-      <p ng-show="main.hasUserAsked && main.answer">{{main.answer.explanation}}</p>
+        <!-- A Backup answer in case API falls over -->
+        <h2 ng-show="main.hasUserAsked && main.fetchingAnswer">Yes</h2>
+        <p ng-show="main.hasUserAsked && main.fetchingAnswer">Each moment you're not with pizza is a moment you're without pizza. Get on your phone or whatever and sort it out. Go.</p>
 
-      <!-- A Backup answer in case API falls over -->
-      <h2 ng-show="main.hasUserAsked && main.fetchingAnswer">Yes</h2>
-      <p ng-show="main.hasUserAsked && main.fetchingAnswer">Each moment you're not with pizza is a moment you're without pizza. Get on your phone or whatever and sort it out. Go.</p>
+        <button
+          ng-hide="main.findUserPizza"
+          class="pizza-button find-pizza"
+          ng-click="main.findUserPizza = true"
+        >Find Me A Pizza</button>
+
+          <div class="pizza-results">
+            <div class="detail">
+              <h3><a href="/">results.name</a></h3>
+              <p>results.vicinity</p>
+              <p>results.rating open_now</p>
+            </div>
+            <div class="detail-right">
+              <button>More Details</button>
+            </div>
+          </div>
+
+          <div class="pizza-results">
+            <div class="detail">
+              <h3><a href="/">Gigi's Pizza</a></h3>
+              <p>189 West Broadway</p>
+              <p>***** Open Now</p>
+            </div>
+            <div class="detail-right">
+              <button>More Details</button>
+            </div>
+          </div>
+
+          <div class="pizza-results">
+            <div class="detail">
+              <h3><a href="/">Little Caesar's</a></h3>
+              <p>949 Commercial Drive</p>
+              <p>***** Open Now</p>
+            </div>
+            <div class="detail-right">
+              <button>More Details</button>
+            </div>
+          </div>
+
+      </div>
     </div>
-
     <footer>
       <div class="container">
         <p>We made the right decision.</p>
