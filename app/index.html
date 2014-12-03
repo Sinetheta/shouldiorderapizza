@@ -47,12 +47,11 @@
           ng-click="main.hasUserAsked = true"
         >Well, Should I?!</button>
 
-        <h2 ng-show="main.hasUserAsked && main.answer">{{main.answer.text}}</h2>
-        <p ng-show="main.hasUserAsked && main.answer">{{main.answer.explanation}}</p>
-
+        <h2 ng-show="main.showAnswer()">{{main.answer.text}}</h2>
+        <p ng-show="main.showAnswer()">{{main.answer.explanation}}</p>
 
         <button
-          ng-hide="main.findUserPizza"
+          ng-show="main.showFindButton()"
           class="pizza-button find-pizza"
           ng-click="main.findUserPizza = true"
         >Find Me A Pizza</button>

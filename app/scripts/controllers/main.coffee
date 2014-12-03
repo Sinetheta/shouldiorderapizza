@@ -42,6 +42,9 @@ angular.module('shouldiorderapizzacomApp')
         panick = @$timeout(@getAnswer.cancel, @buttonWaitTime)
         @getAnswer.then(panick.cancel)
 
-      revealAnswer: =>
+      showAnswer: =>
         @hasUserAsked and @answer?
+
+      showFindButton: =>
+        @hasUserAsked and @answer? and not @findUserPizza
   ]
