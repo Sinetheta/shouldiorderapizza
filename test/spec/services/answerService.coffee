@@ -4,10 +4,11 @@ describe 'AnswerService', ->
   beforeEach module 'shouldiorderapizzacomApp'
 
   # instantiate service
-  AnswerService = $httpBackend = {}
-  beforeEach inject (_AnswerService_, _$httpBackend_) ->
+  AnswerService = $httpBackend = $scope = null
+  beforeEach inject (_AnswerService_, _$httpBackend_, $rootScope) ->
     AnswerService = _AnswerService_
     $httpBackend = _$httpBackend_
+    $scope = $rootScope.$new()
 
   describe 'getAnswer', ->
     beforeEach ->
@@ -15,6 +16,11 @@ describe 'AnswerService', ->
       .respond({"text": "Yep","explanation": "Because"})
 
     it 'should request an answer', ->
-      $httpBackend.expectGET(AnswerService.url)
       AnswerService.getAnswer()
       $httpBackend.flush()
+
+    it 'can be cancelled', (done) ->
+      getAnswer = AnswerService.getAnswer()
+      getAnswer.error(done)
+      getAnswer.cancel()
+      $scope.$apply()

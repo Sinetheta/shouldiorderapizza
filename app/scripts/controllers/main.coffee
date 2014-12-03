@@ -1,9 +1,11 @@
 angular.module('shouldiorderapizzacomApp')
   .controller 'MainCtrl', [
     'AnswerService'
+    '$timeout'
     class MainCtrl
       constructor: (
         @AnswerService
+        @$timeout
       ) ->
 
       init: =>
@@ -21,8 +23,24 @@ angular.module('shouldiorderapizzacomApp')
         array[Math.floor(Math.random() * array.length)]
 
       fetchAnswer: =>
-        @fetchingAnswer = true
-        @AnswerService.getAnswer().then (response) =>
-          @answer = response.data
-          @fetchingAnswer = false
+        @getAnswer = @AnswerService.getAnswer()
+        .success (answer) =>
+          @answer = answer
+        .error =>
+          @answer = @fakeAnswer
+
+      fakeAnswer:
+        text: 'Yes'
+        explanation: 'Each moment you\'re not with pizza is a moment you\'re without pizza. Get on your phone or whatever and sort it out. Go.'
+
+      buttonWaitTime: 3000
+
+      shouldi: =>
+        @hasUserAsked = true
+        if @answer? then return
+        panick = @$timeout(@getAnswer.cancel, @buttonWaitTime)
+        @getAnswer.then(panick.cancel)
+
+      revealAnswer: =>
+        @hasUserAsked and @answer?
   ]

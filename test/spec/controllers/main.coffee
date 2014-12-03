@@ -1,33 +1,70 @@
 describe 'Controller: MainCtrl', ->
-  MainCtrl = MockAnswerService = $scope = null
+  MainCtrl = AnswerService = $httpBackend = $scope = $timeout = null
 
   beforeEach module 'shouldiorderapizzacomApp'
-  beforeEach module 'mockAnswerService'
 
-  beforeEach inject ($controller, $rootScope, _MockAnswerService_) ->
+  beforeEach inject (_$timeout_, _$httpBackend_, $controller, $rootScope, _AnswerService_) ->
+    $httpBackend = _$httpBackend_
     $scope = $rootScope.$new()
-    MockAnswerService = _MockAnswerService_
+    $timeout = _$timeout_
+    AnswerService = _AnswerService_
 
     MainCtrl = $controller 'MainCtrl',
       $scope: $scope
-      AnswerService: MockAnswerService
+      AnswerService: AnswerService
 
   describe 'chooseRandom', ->
     it 'should return a random member of an array', ->
       expect(MainCtrl.chooseRandom(['a', 'b'])).toMatch /a|b/
 
-  flow "fetchAnswer", (start) ->
-    start
-    .step 'loading flag should begin undefined', ->
-      expect(MainCtrl.fetchingAnswer).toBeUndefined()
 
-    .step 'request an answer', ->
-      MainCtrl.fetchAnswer()
-      expect(MainCtrl.fetchingAnswer).toBe true
-      expect(MockAnswerService.getAnswer).toHaveBeenCalled()
+  describe 'API responds fast enough', ->
+    realAnswer = {"text": "Yep","explanation": "Because"}
 
-    .step 'resolve the request', ->
-      MockAnswerService.resolveRequest()
-      $scope.$apply()
-      expect(MainCtrl.fetchingAnswer).toBe false
-      expect(MainCtrl.answer).toBe MockAnswerService.fakeAnswer
+    beforeEach ->
+      spyOn(AnswerService, 'getAnswer').and.callThrough()
+      $httpBackend.expectGET(AnswerService.url)
+      .respond(200, realAnswer)
+
+    flow 'Should I order a pizza?', (start) ->
+      start
+      .step 'loading flag should begin undefined', ->
+        expect(MainCtrl.hasUserAsked).toBeUndefined()
+
+      .step 'request an answer', ->
+        MainCtrl.fetchAnswer()
+        expect(AnswerService.getAnswer).toHaveBeenCalled()
+
+      .step 'user asks for answer', ->
+        MainCtrl.shouldi()
+        expect(MainCtrl.hasUserAsked).toBe(true)
+
+      .step 'resolve the request', ->
+        $httpBackend.flush()
+        expect(MainCtrl.answer).toEqual(realAnswer)
+
+
+  describe 'API fails to respond in time', ->
+    beforeEach ->
+        spyOn(AnswerService, 'getAnswer').and.callThrough()
+        $httpBackend.expectGET(AnswerService.url)
+        .respond(500)
+
+    flow 'Should I order a pizza?', (start) ->
+      fakeAnswer = {"text": "Yep","explanation": "Because"}
+
+      start
+      .step 'loading flag should begin undefined', ->
+        expect(MainCtrl.hasUserAsked).toBeUndefined()
+
+      .step 'request an answer', ->
+        MainCtrl.fetchAnswer()
+        expect(AnswerService.getAnswer).toHaveBeenCalled()
+
+      .step 'user asks for answer', ->
+        MainCtrl.shouldi()
+        expect(MainCtrl.hasUserAsked).toBe(true)
+
+      .step 'reach the wait time limit', ->
+        $timeout.flush()
+        expect(MainCtrl.answer).toEqual(MainCtrl.fakeAnswer)
