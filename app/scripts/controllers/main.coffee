@@ -10,6 +10,7 @@ angular.module('shouldiorderapizzacomApp')
 
       init: =>
         @fetchAnswer()
+        @byline = @chooseRandom(@bylines)
 
       bylines: [
         'The Age-old Question',
