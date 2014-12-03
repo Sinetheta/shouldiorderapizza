@@ -1,10 +1,16 @@
 angular.module('shouldiorderapizzacomApp')
   .controller 'MainCtrl', [
     'AnswerService'
+    'geolocation'
+    'pizzaPlaces'
+    '$q'
     '$timeout'
     class MainCtrl
       constructor: (
         @AnswerService
+        @geolocation
+        @pizzaPlaces
+        @$q
         @$timeout
       ) ->
 
@@ -47,4 +53,17 @@ angular.module('shouldiorderapizzacomApp')
 
       showFindButton: =>
         @hasUserAsked and @answer? and not @findUserPizza
+
+      lookForPizza: =>
+        @findUserPizza = true
+        @geolocation.getCurrentLocation()
+        .then(@pizzaPlaces.getNearbyPizza)
+        .then (places) =>
+          topResults = places.slice(0, 3)
+          getDetails = topResults.map(@pizzaPlaces.getPlaceDetails)
+          @$q.all(getDetails)
+        .then (details) =>
+          @pizzaPlaces = details
+
+        return
   ]
