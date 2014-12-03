@@ -12,6 +12,7 @@ describe 'Controller: MainCtrl', ->
     MainCtrl = $controller 'MainCtrl',
       $scope: $scope
       AnswerService: AnswerService
+      geolocation: {}
 
   describe 'chooseRandom', ->
     it 'should return a random member of an array', ->
