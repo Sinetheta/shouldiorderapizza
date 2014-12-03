@@ -50,9 +50,6 @@
         <h2 ng-show="main.hasUserAsked && main.answer">{{main.answer.text}}</h2>
         <p ng-show="main.hasUserAsked && main.answer">{{main.answer.explanation}}</p>
 
-        <!-- A Backup answer in case API falls over -->
-        <h2 ng-show="main.hasUserAsked && main.fetchingAnswer">Yes</h2>
-        <p ng-show="main.hasUserAsked && main.fetchingAnswer">Each moment you're not with pizza is a moment you're without pizza. Get on your phone or whatever and sort it out. Go.</p>
 
         <button
           ng-hide="main.findUserPizza"
