@@ -69,3 +69,37 @@ h2
 .find-pizza
   background-color: $brand-secondary
 
+.arrow-box
+  position: fixed
+  right: 19px
+  font-size: 1.5em
+  background: $brand-secondary
+  z-index: 10000
+  top: -10px
+  -webkit-animation: arrow 1s ease-out
+
+  &:before
+    position: absolute
+    content: ""
+    bottom: 100%
+    width: 0
+    height: 0
+    right: 30px
+    border-bottom: 26px solid $brand-secondary
+    border-right: 13px solid transparent
+    border-left: 13px solid transparent
+
+  @keyframes arrow
+    0%
+      top: -500px
+    60%
+      top: -10px
+    70%
+      top: -20px
+    80%
+      top: -10px
+    90%
+      top: -13px
+    100%
+      top: -10px
+
