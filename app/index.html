@@ -19,7 +19,11 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <button class="pizza-button arrow-box arrow">Allow = Pizza</button>
+    <button
+      ng-cloak
+      ng-show="main.promptGeoAllow"
+      class="pizza-button arrow-box arrow"
+    >Allow = Pizza</button>
     <header>
       <div class="container">
         <p class="ribbon" ng-bind="main.byline"></p>

@@ -8,15 +8,16 @@ angular.module('shouldiorderapizzacomApp')
 ) ->
   geolocation = {}
 
-  geolocation.getCurrentLocation = ->
+  geolocation.getCoords = ->
     deferred = $q.defer()
     $window.navigator.geolocation.getCurrentPosition (position) ->
-      latitude = position.coords.latitude
-      longitude = position.coords.longitude
-      latlng = new google.maps.LatLng(latitude, longitude)
-      deferred.resolve(latlng)
+      deferred.resolve(position.coords)
     , deferred.reject
     deferred.promise
+
+  geolocation.getCurrentLocation = ->
+    geolocation.getCoords().then (coords) ->
+      new google.maps.LatLng(coords.latitude, coords.longitude)
 
   geolocation
 ]

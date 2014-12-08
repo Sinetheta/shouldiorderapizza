@@ -1,10 +1,12 @@
 describe 'Controller: MainCtrl', ->
-  MainCtrl = AnswerService = $httpBackend = $scope = $timeout = null
+  MainCtrl = AnswerService = geolocation = $httpBackend = $scope = $timeout = null
 
   beforeEach module 'shouldiorderapizzacomApp'
 
-  beforeEach inject (_$timeout_, _$httpBackend_, $controller, $rootScope, _AnswerService_) ->
+  beforeEach inject (_$timeout_, _$httpBackend_, $controller, $q, $rootScope, _AnswerService_) ->
     $httpBackend = _$httpBackend_
+    @$q = $q
+    geolocation = {foo: 'bar'}
     $scope = $rootScope.$new()
     $timeout = _$timeout_
     AnswerService = _AnswerService_
@@ -12,7 +14,7 @@ describe 'Controller: MainCtrl', ->
     MainCtrl = $controller 'MainCtrl',
       $scope: $scope
       AnswerService: AnswerService
-      geolocation: {}
+      geolocation: geolocation
       pizzaPlaces: {}
 
   describe 'chooseRandom', ->
@@ -70,3 +72,72 @@ describe 'Controller: MainCtrl', ->
       .step 'reach the wait time limit', ->
         $timeout.flush()
         expect(MainCtrl.answer).toEqual(MainCtrl.fakeAnswer)
+
+  describe 'lookForPizza', ->
+    beforeEach ->
+      spyOn(MainCtrl, 'getNearbyPizza')
+
+    describe 'user accepts geolocation request', ->
+      fakeLocation = {latitude: 1, longitude: 2}
+      beforeEach ->
+        geolocation.getCurrentLocation = =>
+          deferred = @$q.defer()
+          deferred.resolve(fakeLocation)
+          deferred.promise
+        spyOn(geolocation, 'getCurrentLocation').and.callThrough()
+
+      flow 'search for neaby pizza', (start) ->
+        start
+        .step 'loading flags should begin undefined', ->
+          expect(MainCtrl.findUserPizza).toBeUndefined()
+          expect(MainCtrl.promptGeoAllow).toBeUndefined()
+
+        .step 'initiate a search', ->
+          MainCtrl.lookForPizza()
+          expect(geolocation.getCurrentLocation).toHaveBeenCalled()
+
+        .step 'set teaser flag', ->
+          expect(MainCtrl.findUserPizza).toBe(true)
+
+        .step 'encourage user to answer prompt', ->
+          expect(MainCtrl.promptGeoAllow).toBe(true)
+
+        .step 'user accepts request', ->
+          $scope.$apply()
+          expect(MainCtrl.promptGeoAllow).toBe(false)
+
+        .step 'find neaby pizza', ->
+          $scope.$apply()
+          expect(MainCtrl.getNearbyPizza).toHaveBeenCalledWith(fakeLocation)
+
+    describe 'user rejects geolocation request', ->
+      beforeEach ->
+        geolocation.getCurrentLocation = =>
+          deferred = @$q.defer()
+          deferred.reject()
+          deferred.promise
+        spyOn(geolocation, 'getCurrentLocation').and.callThrough()
+
+      flow 'search for neaby pizza', (start) ->
+        start
+        .step 'loading flags should begin undefined', ->
+          expect(MainCtrl.findUserPizza).toBeUndefined()
+          expect(MainCtrl.promptGeoAllow).toBeUndefined()
+
+        .step 'initiate a search', ->
+          MainCtrl.lookForPizza()
+          expect(geolocation.getCurrentLocation).toHaveBeenCalled()
+
+        .step 'set teaser flag', ->
+          expect(MainCtrl.findUserPizza).toBe(true)
+
+        .step 'encourage user to answer prompt', ->
+          expect(MainCtrl.promptGeoAllow).toBe(true)
+
+        .step 'user denies request', ->
+          $scope.$apply()
+          expect(MainCtrl.promptGeoAllow).toBe(false)
+
+        .step 'set error flag', ->
+          $scope.$apply()
+          expect(MainCtrl.geolocationError).toBe(true)

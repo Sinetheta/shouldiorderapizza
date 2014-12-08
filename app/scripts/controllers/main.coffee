@@ -56,14 +56,21 @@ angular.module('shouldiorderapizzacomApp')
 
       lookForPizza: =>
         @findUserPizza = true
+        @promptGeoAllow = true
         @geolocation.getCurrentLocation()
-        .then(@pizzaPlaces.getNearbyPizza)
+        .then (location) =>
+          @promptGeoAllow = false
+          @getNearbyPizza(location)
+        , =>
+          @promptGeoAllow = false
+          @geolocationError = true
+
+      getNearbyPizza: (location) =>
+        @pizzaPlaces.getNearbyPizza(location)
         .then (places) =>
           topResults = places.slice(0, 3)
           getDetails = topResults.map(@pizzaPlaces.getPlaceDetails)
           @$q.all(getDetails)
         .then (details) =>
           @pizzaPlaces = details
-
-        return
   ]
