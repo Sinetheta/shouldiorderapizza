@@ -66,11 +66,5 @@ angular.module('shouldiorderapizzacomApp')
           @geolocationError = true
 
       getNearbyPizza: (location) =>
-        @pizzaPlaces.getNearbyPizza(location)
-        .then (places) =>
-          topResults = places.slice(0, 3)
-          getDetails = topResults.map(@pizzaPlaces.getPlaceDetails)
-          @$q.all(getDetails)
-        .then (details) =>
-          @pizzaPlaces = details
+        @pizzaJoints = @pizzaPlaces.getNearbyPizza(location)
   ]

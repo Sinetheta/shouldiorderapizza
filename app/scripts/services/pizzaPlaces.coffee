@@ -1,15 +1,21 @@
 angular.module('shouldiorderapizzacomApp')
 .factory 'pizzaPlaces', [
+  '$rootScope'
   '$q'
   'googleMapsPlaces'
+  'PizzaPlace'
 (
+  $rootScope
   $q
   googleMapsPlaces
+  PizzaPlace
 ) ->
 
   new class pizzaPlaces
     getNearbyPizza: (latlng) =>
+      pizzaPlaces = []
       deferred = $q.defer()
+      pizzaPlaces.$promise = deferred.promise
       request =
         location: latlng
         radius: 5000
@@ -17,8 +23,12 @@ angular.module('shouldiorderapizzacomApp')
         opennow: true
         types: ['meal_delivery']
       googleMapsPlaces.nearbySearch request, (places) ->
+
+        replaceContents pizzaPlaces, places.map (place) ->
+          new PizzaPlace(place)
         deferred.resolve(places)
-      deferred.promise
+        $rootScope.$apply()
+      pizzaPlaces
 
     getPlaceDetails: (place) =>
       deferred = $q.defer()
@@ -29,3 +39,6 @@ angular.module('shouldiorderapizzacomApp')
         deferred.resolve(details)
       deferred.promise
 ]
+
+replaceContents = (array, newContents) ->
+  Array.prototype.splice.apply(array, [0, array.length].concat(newContents))
