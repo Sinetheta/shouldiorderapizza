@@ -53,3 +53,23 @@
       border: none
       border-radius: 0.25em
       text-align: right
+
+.rating
+  color: $google-bile
+
+  .stars,
+  [class^=half-filled-stars]
+    display: inline-block
+    height: 13px
+
+  .stars
+    width: 70px
+    background: url(/images/star-empty.png)
+
+  [class^=half-filled-stars]
+    position: absolute
+
+  @for $i from 1 through 10
+    .half-filled-stars-#{$i}
+      width: 7px * $i
+      background: url(/images/star-full.png)

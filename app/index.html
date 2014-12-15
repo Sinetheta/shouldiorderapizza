@@ -68,11 +68,15 @@
         <ul
           ng-show="main.findUserPizza"
           class="pizza-results">
-          <li ng-repeat="pizzaJoint in main.pizzaPlaces">
+          <li ng-repeat="pizzaJoint in main.pizzaJoints | orderBy:'rating':true">
             <div class="detail">
               <h3><a ng-href="pizzaJoint.url">{{pizzaJoint.name}}</a></h3>
               <p>{{pizzaJoint.vicinity}}</p>
-              <p>rating: {{pizzaJoint.rating}} {{pizzaJoint.opening_hours.open_now? 'open now': 'currently closed'}}</p>
+              <p><span class="rating"
+                ng-show="pizzaJoint.rating"
+                >{{pizzaJoint.rating}}
+                <span class="stars"><span ng-class="main.roundRating(pizzaJoint.rating)"></span></span></span>
+                {{pizzaJoint.opening_hours.open_now? 'open now': 'currently closed'}}</p>
             </div>
             <div class="detail-right">
               <button>More Details</button>
