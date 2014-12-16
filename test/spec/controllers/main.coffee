@@ -99,8 +99,8 @@ describe 'Controller: MainCtrl', ->
         .step 'set teaser flag', ->
           expect(MainCtrl.findUserPizza).toBe(true)
 
-        .step 'encourage user to answer prompt', ->
-          expect(MainCtrl.promptGeoAllow).toBe(true)
+        # .step 'encourage user to answer prompt', ->
+        #   expect(MainCtrl.promptGeoAllow).toBe(true)
 
         .step 'user accepts request', ->
           $scope.$apply()
@@ -131,8 +131,8 @@ describe 'Controller: MainCtrl', ->
         .step 'set teaser flag', ->
           expect(MainCtrl.findUserPizza).toBe(true)
 
-        .step 'encourage user to answer prompt', ->
-          expect(MainCtrl.promptGeoAllow).toBe(true)
+        # .step 'encourage user to answer prompt', ->
+        #   expect(MainCtrl.promptGeoAllow).toBe(true)
 
         .step 'user denies request', ->
           $scope.$apply()

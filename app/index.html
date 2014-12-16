@@ -26,8 +26,8 @@
     <![endif]-->
     <button
       ng-cloak
-      ng-show="main.promptGeoAllow"
-      class="pizza-button arrow-box arrow"
+      ng-show="main.showGeoPrompt()"
+      class="arrow-box arrow"
     >Allow = Pizza</button>
     <header>
       <div class="container">
@@ -132,6 +132,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/answerService.js"></script>
+    <script src="scripts/services/browser.js"></script>
     <script src="scripts/services/googleMapsPlaces.js"></script>
     <script src="scripts/services/PizzaPlace.js"></script>
     <script src="scripts/services/pizzaPlaces.js"></script>

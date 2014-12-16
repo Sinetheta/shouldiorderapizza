@@ -1,6 +1,7 @@
 angular.module('shouldiorderapizzacomApp')
   .controller 'MainCtrl', [
     'AnswerService'
+    'browser'
     'geolocation'
     'pizzaPlaces'
     '$q'
@@ -8,6 +9,7 @@ angular.module('shouldiorderapizzacomApp')
     class MainCtrl
       constructor: (
         @AnswerService
+        @browser
         @geolocation
         @pizzaPlaces
         @$q
@@ -54,11 +56,17 @@ angular.module('shouldiorderapizzacomApp')
       showFindButton: =>
         @hasUserAsked and @answer? and not @findUserPizza
 
+      showGeoPrompt: =>
+        @browser() is 'chrome' and @promptGeoAllow
+
       lookForPizza: =>
         @findUserPizza = true
-        @promptGeoAllow = true
+        prompt = @$timeout =>
+          @promptGeoAllow = true
+        , 3000
         @geolocation.getCurrentLocation()
         .then (location) =>
+          @$timeout.cancel(prompt)
           @promptGeoAllow = false
           @getNearbyPizza(location)
         , =>
