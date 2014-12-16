@@ -76,6 +76,10 @@ angular.module('shouldiorderapizzacomApp')
       getNearbyPizza: (location) =>
         @pizzaJoints = @pizzaPlaces.getNearbyPizza(location)
 
+      fetchDetails: (pizzaJoint) =>
+        pizzaJoint.details = true
+        @pizzaPlaces.getPlaceDetails(pizzaJoint)
+
       roundRating: (rating) ->
         halfCount = Math.round(rating * 2)
         "half-filled-stars-#{halfCount}"

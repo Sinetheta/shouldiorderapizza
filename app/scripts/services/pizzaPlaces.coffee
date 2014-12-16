@@ -31,13 +31,12 @@ angular.module('shouldiorderapizzacomApp')
       pizzaPlaces
 
     getPlaceDetails: (place) =>
-      deferred = $q.defer()
       #jshint camelcase: false
       googleMapsPlaces.getDetails
         placeId: place.place_id
       , (details) ->
-        deferred.resolve(details)
-      deferred.promise
+        angular.extend(place, details)
+        $rootScope.$apply()
 ]
 
 replaceContents = (array, newContents) ->

@@ -79,9 +79,16 @@
                 >{{pizzaJoint.rating}}
                 <span class="stars"><span ng-class="main.roundRating(pizzaJoint.rating)"></span></span></span>
                 {{pizzaJoint.opening_hours.open_now? 'open now': 'currently closed'}}</p>
+              <p><a
+                ng-href="tel:{{pizzaJoint.international_phone_number}}"
+                ng-bind="pizzaJoint.formatted_phone_number"></a></p>
+              <p><a
+                target="_blank"
+                ng-href="{{pizzaJoint.website}}"
+                ng-bind="pizzaJoint.website"></a></p>
             </div>
-            <div class="detail-right">
-              <button>More Details</button>
+            <div class="detail-right" ng-hide="pizzaJoint.details">
+              <button ng-click="main.fetchDetails(pizzaJoint)">More Details</button>
             </div>
           </li>
         </ul>

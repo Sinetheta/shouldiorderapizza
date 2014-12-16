@@ -3,8 +3,10 @@
   margin: 30px auto
   padding: 0
 
+  $detail-padding: 20px
   li
-    padding: 20px
+    position: relative
+    padding: $detail-padding
     border-collapse: collapse
     margin: 5px auto
     background-color: white
@@ -13,11 +15,6 @@
     box-shadow: 2px 2px 1px darken($body-bg, 10%)
 
   .detail
-    float: left
-
-    @media (max-width: $screen-xs-max)
-      float: none
-
     h3
       margin: -7px 0 0 0
       padding: 0
@@ -35,9 +32,14 @@
       line-height: 1.3em
 
   .detail-right
-    text-align: right
+    position: absolute
+    top: $detail-padding
+    right: $detail-padding
 
     @media (max-width: $screen-xs-max)
+      position: relative
+      top: 0
+      right: 0
       text-align: center
       margin-top: 20px
 
