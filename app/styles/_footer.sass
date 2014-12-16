@@ -13,13 +13,11 @@ footer
   list-style: none
   padding-left: 0
 
-
   li
     display: inline-block
 
     + li
       margin-left: 5px
-
 
   $social-link-diameter: 60px
   a
@@ -32,6 +30,12 @@ footer
     color: $text-color
     border-radius: $social-link-diameter/2
     background-color: $brand-secondary
+    -webkit-transition: 200ms background-color
+    -moz-transition: 200ms background-color
+    -ms-transition: 200ms background-color
+    -o-transition: 200ms background-color
+    transition: 200ms background-color
+
 
     &:hover
       background-color: lighten($brand-secondary, 10%)
