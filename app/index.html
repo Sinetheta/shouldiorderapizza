@@ -56,16 +56,18 @@
           ng-click="main.hasUserAsked = true"
         >Well, Should I?!</button>
 
-        <h2 ng-show="main.showAnswer()">{{main.answer.text}}</h2>
-        <p ng-show="main.showAnswer()">{{main.answer.explanation}}</p>
+        <h2 ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
+        <p ng-show="main.showAnswer()" ng-cloak>{{main.answer.explanation}}</p>
 
         <button
+          ng-cloak
           ng-show="main.showFindButton()"
           class="pizza-button find-pizza"
           ng-click="main.lookForPizza()"
         >Find Me A Pizza</button>
 
         <ul
+          ng-cloak
           ng-show="main.findUserPizza"
           class="pizza-results">
           <li ng-repeat="pizzaJoint in main.pizzaJoints | orderBy:'rating':true">

@@ -37,10 +37,18 @@ $ribbon-line-height: $font-size-base
 $ribbon-padding: round(1.12 * $font-size-base)
 $ribbon-height: $ribbon-line-height + 2 * $ribbon-padding
 
+@keyframes w85
+  from
+    width: 25%
+  to
+    width: 85%
+
 .ribbon
   line-height: $ribbon-line-height
+  min-height: $ribbon-line-height
   position: relative
   width: 85%
+  animation: w85 1s ease forwards
   margin: 1.75em auto
   padding: $ribbon-padding 0
   color: $gray
