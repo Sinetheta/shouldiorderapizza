@@ -21,9 +21,9 @@ angular.module('shouldiorderapizzacomApp')
         @byline = @chooseRandom(@bylines)
 
       bylines: [
-        'The Age-old Question',
-        'The Everlasting Struggle',
-        'The Unknowable.',
+        'The Age-old Question.',
+        'The Guidance You Need.',
+        'Let Us Help You.',
         'The Eighteen Dollar Question.',
         'The Internet Can Help.'
       ]
