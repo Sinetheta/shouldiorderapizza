@@ -1,0 +1,34 @@
+@function reveal-x($angle, $max-angle: 360deg)
+  $corner-stop: min($angle, $max-angle)
+  $offset: sin($corner-stop) + 0.5
+  @return  $offset * 100%
+@function reveal-y($angle, $max-angle: 360deg)
+  $corner-stop: min($angle, $max-angle)
+  $offset: sin($corner-stop - 90deg) + 0.5
+  @return  $offset * 100%
+
+=reveal-pizza($angle)
+  $x0: reveal-x($angle, 45deg)
+  $y0: reveal-y($angle, 45deg)
+  $x1: reveal-x($angle, 135deg)
+  $y1: reveal-y($angle, 135deg)
+  $x2: reveal-x($angle, 215deg)
+  $y2: reveal-y($angle, 215deg)
+  $x3: reveal-x($angle, 305deg)
+  $y3: reveal-y($angle, 305deg)
+  $x4: reveal-x($angle)
+  $y4: reveal-y($angle)
+  -webkit-clip-path: polygon(50% 50%, 50% 0, $x0 $y0, $x1 $y1, $x2 $y2, $x3 $y3, $x4 $y4)
+  clip-path: polygon(50% 50%, 50% 0, $x0 $y0, $x1 $y1, $x2 $y2, $x3 $y3, $x4 $y4)
+
+.loader
+  background: url('/images/pizza.png')
+  -webkit-animation: eatPizza 4s step-start infinite
+
+
+@-webkit-keyframes eatPizza
+  @for $i from 0 through 8
+    $progress: $i/8
+    $showing: (1 - $i/8) * 360
+    #{$progress * 100%}
+      +reveal-pizza($showing * 1deg)

@@ -59,6 +59,9 @@ angular.module('shouldiorderapizzacomApp')
       showGeoPrompt: =>
         @browser() is 'chrome' and @promptGeoAllow
 
+      isLookingForPizza: =>
+        @findUserPizza and !@pizzaJoints?
+
       lookForPizza: =>
         @findUserPizza = true
         prompt = @$timeout =>
