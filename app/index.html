@@ -68,6 +68,8 @@
 
         <div ng-cloak ng-show="main.isLookingForPizza()" class="loader"></div>
 
+        <p ng-cloak ng-show="main.geolocationError">Sorry pal, no pizza on the moon. Try the <a href="http://lmgtfy.com/?q=pizza&l=1">internet</a>.</p>
+
         <ul
           ng-cloak
           ng-show="main.findUserPizza"

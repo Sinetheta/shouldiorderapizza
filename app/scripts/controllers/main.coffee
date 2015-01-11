@@ -57,10 +57,10 @@ angular.module('shouldiorderapizzacomApp')
         @hasUserAsked and @answer? and not @findUserPizza
 
       showGeoPrompt: =>
-        @browser() is 'chrome' and @promptGeoAllow
+        @browser() is 'chrome' and @promptGeoAllow and !@geolocationError
 
       isLookingForPizza: =>
-        @findUserPizza and !@pizzaJoints?
+        @findUserPizza and !@pizzaJoints? and !@geolocationError
 
       lookForPizza: =>
         @findUserPizza = true
