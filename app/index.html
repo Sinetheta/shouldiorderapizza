@@ -53,10 +53,10 @@
         <button
           ng-hide="main.hasUserAsked"
           class="pizza-button should-i"
-          ng-click="main.hasUserAsked = true"
+          ng-click="main.ask('#answer')"
         >Well, Should I?!</button>
 
-        <h2 ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
+        <h2 id="answer" ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
         <p ng-show="main.showAnswer()" ng-cloak>{{main.answer.explanation}}</p>
 
         <button
@@ -135,11 +135,14 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/jquery-scroll-to.js"></script>
+    <script src="scripts/jquery-is-scrolled-into-view.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/answerService.js"></script>
