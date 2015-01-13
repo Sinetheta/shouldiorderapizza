@@ -8,6 +8,11 @@ h1
   line-height: .5
   text-transform: uppercase
   text-shadow: 2px 2px 1px darken($body-bg, 10%)
+  opacity: 0
+
+  .ng-scope &
+    opacity: 1
+    transition: opacity 1.5s .3s
 
   @media (max-width: $screen-md-max)
     font-size: 3.5em
