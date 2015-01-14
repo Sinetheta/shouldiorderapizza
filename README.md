@@ -5,8 +5,10 @@ Answering the important questions.
 ## Getting Started
 
 1. `npm install bower grunt-cli -g` to install Bower and Grunt.
-2. `npm install` to install project dependencies.
-3. `grunt serve` to start a webserver and open the app.
+2. `npm install` to install development dependencies.
+3. `bower install` to install website assets.
+4. `grunt serve` to start a webserver and open the app.
+
 
 ## Before Committing
 
