@@ -1,0 +1,212 @@
+{
+  "address_components": [{
+    "long_name": "775 Fort St",
+    "short_name": "775 Fort St",
+    "types": ["route"]
+  }, {
+    "long_name": "Victoria",
+    "short_name": "Victoria",
+    "types": ["locality", "political"]
+  }, {
+    "long_name": "British Columbia",
+    "short_name": "BC",
+    "types": ["administrative_area_level_1", "political"]
+  }, {
+    "long_name": "Canada",
+    "short_name": "CA",
+    "types": ["country", "political"]
+  }, {
+    "long_name": "V8W 1G9",
+    "short_name": "V8W 1G9",
+    "types": ["postal_code"]
+  }],
+  "adr_address": "<span class=\"street-address\">775 Fort St</span>, <span class=\"locality\">Victoria</span>, <span class=\"region\">BC</span> <span class=\"postal-code\">V8W 1G9</span>, <span class=\"country-name\">Canada</span>",
+  "formatted_address": "775 Fort St, Victoria, BC V8W 1G9, Canada",
+  "formatted_phone_number": "(250) 385-6666",
+  "geometry": {
+    "location": {
+      "k": 48.42432,
+      "B": -123.36327900000003
+    }
+  },
+  "icon": "http://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+  "id": "c875df967735c0d402bfc9c593c375ec7678ee91",
+  "international_phone_number": "+1 250-385-6666",
+  "name": "Ali Baba Pizza Victoria",
+  "opening_hours": {
+    "open_now": true,
+    "periods": [{
+      "close": {
+        "day": 1,
+        "time": "0000",
+        "hours": 0,
+        "minutes": 0,
+        "nextDate": 1418025600000
+      },
+      "open": {
+        "day": 0,
+        "time": "1100",
+        "hours": 11,
+        "minutes": 0,
+        "nextDate": 1417978800000
+      }
+    }, {
+      "close": {
+        "day": 2,
+        "time": "0000",
+        "hours": 0,
+        "minutes": 0,
+        "nextDate": 1418112000000
+      },
+      "open": {
+        "day": 1,
+        "time": "1030",
+        "hours": 10,
+        "minutes": 30,
+        "nextDate": 1418063400000
+      }
+    }, {
+      "close": {
+        "day": 3,
+        "time": "0000",
+        "hours": 0,
+        "minutes": 0,
+        "nextDate": 1417593600000
+      },
+      "open": {
+        "day": 2,
+        "time": "1030",
+        "hours": 10,
+        "minutes": 30,
+        "nextDate": 1418149800000
+      }
+    }, {
+      "close": {
+        "day": 4,
+        "time": "0000",
+        "hours": 0,
+        "minutes": 0,
+        "nextDate": 1417680000000
+      },
+      "open": {
+        "day": 3,
+        "time": "1030",
+        "hours": 10,
+        "minutes": 30,
+        "nextDate": 1417631400000
+      }
+    }, {
+      "close": {
+        "day": 5,
+        "time": "0000",
+        "hours": 0,
+        "minutes": 0,
+        "nextDate": 1417766400000
+      },
+      "open": {
+        "day": 4,
+        "time": "1030",
+        "hours": 10,
+        "minutes": 30,
+        "nextDate": 1417717800000
+      }
+    }, {
+      "close": {
+        "day": 6,
+        "time": "0200",
+        "hours": 2,
+        "minutes": 0,
+        "nextDate": 1417860000000
+      },
+      "open": {
+        "day": 5,
+        "time": "1030",
+        "hours": 10,
+        "minutes": 30,
+        "nextDate": 1417804200000
+      }
+    }, {
+      "close": {
+        "day": 0,
+        "time": "0200",
+        "hours": 2,
+        "minutes": 0,
+        "nextDate": 1417946400000
+      },
+      "open": {
+        "day": 6,
+        "time": "1030",
+        "hours": 10,
+        "minutes": 30,
+        "nextDate": 1417890600000
+      }
+    }],
+    "weekday_text": ["Monday: 10:30 am – 12:00 am", "Tuesday: 10:30 am – 12:00 am", "Wednesday: 10:30 am – 12:00 am", "Thursday: 10:30 am – 12:00 am", "Friday: 10:30 am – 2:00 am", "Saturday: 10:30 am – 2:00 am", "Sunday: 11:00 am – 12:00 am"]
+  },
+  "place_id": "ChIJQ2nN-o90j1QR7DHRCiHqp_4",
+  "rating": 3.8,
+  "reference": "CoQBcQAAAL5HKPjLe1rfIRAIo5Y7BHtg5Gogj9PlO7KgbJk2WC1ckKCJ3uHc8iUFmrObN73EXGJuvxoi4yaBoQg_AQUNkemeFVK4iE93pDVAcN80RBcrALmygX11nyHtg80xFBKv-tQq5aca2DJMOZwmF5s7FStz-2vws0-_xWrIlZBSIpe6EhD8lPZ3Ap-G0QL0FgEvKHitGhRWOSfe5TgJRWcVEJ2NZ2gEobWumQ",
+  "reviews": [{
+    "aspects": [{
+      "rating": 3,
+      "type": "overall"
+    }],
+    "author_name": "Jessica Webster",
+    "author_url": "https://plus.google.com/104807115712481284521",
+    "language": "en",
+    "rating": 5,
+    "text": "Only pizza place we order from, best costumer service, best pizza. Best in town. ",
+    "time": 1417114481
+  }, {
+    "aspects": [{
+      "rating": 0,
+      "type": "overall"
+    }],
+    "author_name": "Penguins Ht",
+    "author_url": "https://plus.google.com/111890393278081940267",
+    "language": "en",
+    "rating": 1,
+    "text": "I tried to order Ali Baba with some friends however I was extremely disappointed by their customer service. I called at 11:15pm, knowing they deliver until 12 am and the 'gentlemen' who answered the phone was extremely rude with me. He asked for my phone number and when I asked if I could call him back to double check it he said fine, but when I called back and tried to give him my contact he interrupted me and asked me where I lived and when I tried to tell him where I lived he said \"sorry I can't hear you all I hear is mumble , mumble...\" and I could hear him talking and laughing with somebody in the background. He then cut me off when I was relaying the address and he said that he would not deliver to my address. I'm not sure if they were not interested in delivering to my address because of the time, or maybe the distance is too far... but they really need to improve on their customer service skills and if they post that they are open until 12 am, they should at least be professional until closing. I live a 10 minute walk from the University so I don't see why they wouldn't deliver to my address. Any way, I will never order from here because of their offensive mockery.",
+    "time": 1398409207
+  }, {
+    "aspects": [{
+      "rating": 1,
+      "type": "overall"
+    }],
+    "author_name": "Nevin Thompson",
+    "author_url": "https://plus.google.com/117513610578361604065",
+    "language": "en",
+    "rating": 3,
+    "text": "Why are the $5 slices a quarter pizza? It's a lot of food for five bucks, but it's two slices of the same thing. What if you want two different kinds of pizza? I would be willing to pay more per slice if meant more choice.",
+    "time": 1386745284
+  }, {
+    "aspects": [{
+      "rating": 3,
+      "type": "overall"
+    }],
+    "author_name": "A Google User",
+    "language": "en",
+    "rating": 5,
+    "text": "Wholly moly! We popped in to town and needed a piece of pizza to settle in for our visit to Victoria. We called another pizza place, but they didn't deliver. So instead of telling us to come down they recommend AliBaba's Pizza! I sure know why! It's some of the best 'indie' pizza I've ever eaten, and trust me .. I love the pizza! When you come down to Victoria, visit Ali Baba's for the best damned pizza. Period.",
+    "time": 1313732343
+  }, {
+    "aspects": [{
+      "rating": 2,
+      "type": "overall"
+    }],
+    "author_name": "A Google User",
+    "language": "en",
+    "rating": 4,
+    "text": "Multi grain Greek , without beef. 5 Chees pizza on regular dough.\n\n:D Great stuff. Love the mutli-grain dough. Ingredients are choice, and tasty.\n\nUsed the online ordering, and it was fast and efficient.",
+    "time": 1287545305
+  }],
+  "scope": "GOOGLE",
+  "types": ["meal_takeaway", "restaurant", "meal_delivery", "food", "establishment"],
+  "url": "https://plus.google.com/112212204891814678463/about?hl=en-US",
+  "user_ratings_total": 20,
+  "utc_offset": -480,
+  "vicinity": "775 Fort St, Victoria",
+  "website": "http://www.alibabapizza.ca/",
+  "html_attributions": [],
+  "tz": "GMT-0800"
+}

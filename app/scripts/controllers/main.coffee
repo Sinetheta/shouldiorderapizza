@@ -4,6 +4,7 @@ angular.module('shouldiorderapizzacomApp')
     'browser'
     'geolocation'
     'pizzaPlaces'
+    '$interval'
     '$q'
     '$timeout'
     class MainCtrl
@@ -12,6 +13,7 @@ angular.module('shouldiorderapizzacomApp')
         @browser
         @geolocation
         @pizzaPlaces
+        @$interval
         @$q
         @$timeout
       ) ->
@@ -30,6 +32,12 @@ angular.module('shouldiorderapizzacomApp')
 
       chooseRandom: (array) ->
         array[Math.floor(Math.random() * array.length)]
+
+      ask: (answerTarget) =>
+        @hasUserAsked = true
+        target = $(answerTarget)
+        @waitForVisible(target).then ->
+          $.scrollTo(target) unless target.isScrolledIntoView()
 
       fetchAnswer: =>
         @getAnswer = @AnswerService.getAnswer()
@@ -57,7 +65,10 @@ angular.module('shouldiorderapizzacomApp')
         @hasUserAsked and @answer? and not @findUserPizza
 
       showGeoPrompt: =>
-        @browser() is 'chrome' and @promptGeoAllow
+        @browser() is 'chrome' and @promptGeoAllow and !@geolocationError
+
+      isLookingForPizza: =>
+        @findUserPizza and !@pizzaJoints? and !@geolocationError
 
       lookForPizza: =>
         @findUserPizza = true
@@ -83,4 +94,13 @@ angular.module('shouldiorderapizzacomApp')
       roundRating: (rating) ->
         halfCount = Math.round(rating * 2)
         "half-filled-stars-#{halfCount}"
+
+      waitForVisible: (target) =>
+        deferred = @$q.defer()
+        stop = @$interval =>
+          if target.is(':visible')
+            deferred.resolve()
+            @$interval.cancel(stop)
+        , 10
+        deferred.promise
   ]

@@ -53,10 +53,10 @@
         <button
           ng-hide="main.hasUserAsked"
           class="pizza-button should-i"
-          ng-click="main.hasUserAsked = true"
+          ng-click="main.ask('#answer')"
         >Well, Should I?!</button>
 
-        <h2 ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
+        <h2 id="answer" ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
         <p ng-show="main.showAnswer()" ng-cloak>{{main.answer.explanation}}</p>
 
         <button
@@ -66,13 +66,14 @@
           ng-click="main.lookForPizza()"
         >Find Me A Pizza</button>
 
+        <div ng-cloak ng-show="main.isLookingForPizza()" class="loader"></div>
+
+        <p ng-cloak ng-show="main.geolocationError">Sorry pal, no pizza on the moon. Try the <a href="http://lmgtfy.com/?q=pizza&l=1">internet</a>.</p>
+
         <ul
           ng-cloak
           ng-show="main.findUserPizza"
           class="pizza-results">
-
-          <div class="loader">Loading</div>
-
           <li ng-repeat="pizzaJoint in main.pizzaJoints | orderBy:'rating':true">
             <div class="detail">
               <h3><a ng-href="pizzaJoint.url">{{pizzaJoint.name}}</a></h3>
@@ -134,11 +135,14 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/jquery-scroll-to.js"></script>
+    <script src="scripts/jquery-is-scrolled-into-view.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/answerService.js"></script>

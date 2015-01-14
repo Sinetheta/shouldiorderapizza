@@ -19,6 +19,13 @@ h2
 
 .grid-right
   width: 65%
+  p
+    opacity: 0
+
+    .ng-scope &
+      opacity: 1
+      transition: opacity 1.5s 1s
+
 
   @media (max-width: $screen-sm-max)
     float: none
@@ -65,6 +72,11 @@ h2
 
 .should-i
   background-color: $brand-primary
+  opacity: 0
+
+  .ng-scope &
+    opacity: 1
+    transition: opacity 7s 3s
 
 .find-pizza
   background-color: $brand-secondary
