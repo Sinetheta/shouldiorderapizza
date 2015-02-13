@@ -5,7 +5,6 @@ footer
   text-align: right
   color: $brand-secondary
   background-color: $white
-  font-weight: bold
 
   @media (max-width: $screen-md-max)
     text-align: center
@@ -15,15 +14,7 @@ footer
   padding-left: 0
 
   li
-    opacity: 0
     display: inline-block
-
-  .ng-scope & li
-    opacity: 1
-
-    @for $i from 1 through 3
-      &:nth-of-type(#{$i})
-        transition: opacity 1s (1.3s + 0.2s*$i)
 
     + li
       margin-left: 5px
