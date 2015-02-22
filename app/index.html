@@ -76,7 +76,7 @@
           class="pizza-results">
           <li ng-repeat="pizzaJoint in main.pizzaJoints | orderBy:'rating':true">
             <div class="detail">
-              <h3><a ng-href="pizzaJoint.url">{{pizzaJoint.name}}</a></h3>
+              <h3><a href="#details" ng-click="main.fetchDetails(pizzaJoint)">{{pizzaJoint.name}}</a></h3>
               <p>{{pizzaJoint.vicinity}}</p>
               <p><span class="rating"
                 ng-show="pizzaJoint.rating"
