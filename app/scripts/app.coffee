@@ -1,1 +1,4 @@
-angular.module('shouldiorderapizzacomApp', [])
+angular.module 'shouldiorderapizzacomApp', [
+  'angulartics'
+  'angulartics.google.analytics'
+]

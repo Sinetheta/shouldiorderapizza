@@ -15,6 +15,8 @@ module.exports = (config) ->
     files: [
       'bower_components/jquery/dist/jquery.js'
       'bower_components/angular/angular.js'
+      'bower_components/angulartics/src/angulartics.js'
+      'bower_components/angulartics/src/angulartics-ga.js'
       'bower_components/angular-mocks/angular-mocks.js'
       'node_modules/jasmine-flow/jasmine-flow.js'
       'app/scripts/**/*.coffee'
