@@ -4,6 +4,7 @@ angular.module('shouldiorderapizzacomApp')
     'browser'
     'geolocation'
     'pizzaPlaces'
+    '$analytics'
     '$interval'
     '$q'
     '$timeout'
@@ -13,6 +14,7 @@ angular.module('shouldiorderapizzacomApp')
         @browser
         @geolocation
         @pizzaPlaces
+        @$analytics
         @$interval
         @$q
         @$timeout
@@ -80,9 +82,13 @@ angular.module('shouldiorderapizzacomApp')
           @$timeout.cancel(prompt)
           @promptGeoAllow = false
           @getNearbyPizza(location)
-        , =>
+        , (error) =>
           @promptGeoAllow = false
           @geolocationError = true
+          @$analytics.eventTrack 'error',
+            category: 'geolocation'
+            label: error.message
+            value: error.code
 
       getNearbyPizza: (location) =>
         @pizzaJoints = @pizzaPlaces.getNearbyPizza(location)
@@ -90,6 +96,9 @@ angular.module('shouldiorderapizzacomApp')
       fetchDetails: (pizzaJoint) =>
         pizzaJoint.details = true
         @pizzaPlaces.getPlaceDetails(pizzaJoint)
+        @$analytics.eventTrack 'click',
+          category: 'details'
+          label: pizzaJoint.name
 
       roundRating: (rating) ->
         halfCount = Math.round(rating * 2)

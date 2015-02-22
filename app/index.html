@@ -54,6 +54,9 @@
           ng-hide="main.hasUserAsked"
           class="pizza-button should-i"
           ng-click="main.ask('#answer')"
+          analytics-on
+          analytics-category="button"
+          analytics-label="Should I?"
         >Well, Should I?!</button>
 
         <h2 id="answer" ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
@@ -64,6 +67,9 @@
           ng-show="main.showFindButton()"
           class="pizza-button find-pizza"
           ng-click="main.lookForPizza()"
+          analytics-on
+          analytics-category="button"
+          analytics-label="Find Pizza"
         >Find Me A Pizza</button>
 
         <div ng-cloak ng-show="main.isLookingForPizza()" class="loader"></div>

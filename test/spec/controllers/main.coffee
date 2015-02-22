@@ -114,7 +114,7 @@ describe 'Controller: MainCtrl', ->
       beforeEach ->
         geolocation.getCurrentLocation = =>
           deferred = @$q.defer()
-          deferred.reject()
+          deferred.reject({ code: 1, message: 'User denied Geolocation' })
           deferred.promise
         spyOn(geolocation, 'getCurrentLocation').and.callThrough()
 
