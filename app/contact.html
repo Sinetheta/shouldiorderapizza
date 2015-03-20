@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>Should I Order A Pizza?</title>
+    <title>Contact Should I Order A Pizza?</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Schema.org markup for Google+ -->
@@ -35,11 +35,6 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <button
-      ng-cloak
-      ng-show="main.showGeoPrompt()"
-      class="arrow-box arrow"
-    >Allow = Pizza</button>
     <header>
       <div class="container">
         <p class="ribbon" ng-bind="main.byline"></p>
@@ -47,7 +42,7 @@
       <div class="container-mobile">
         <img src="images/pizza-chef.png" alt="Pizza chef" class="lil-panucci" />
         <h1>
-          <a href="http://www.shouldiorderapizza.com"><span>Should<em>I</em></span><span></em>Order<em>A</em></span><span>Pizza<em>.com</em></span></a>
+          <a href="/"><span>Should<em>I</em></span><span></em>Order<em>A</em></span><span>Pizza<em>.com</em></span></a>
         </h1>
       </div>
     </header>
@@ -57,66 +52,18 @@
         <img src="images/pizza-chef.png" alt="Pizza chef" class="panucci" />
       </div>
       <div class="grid grid-right">
-        <p ng-hide="main.hasUserAsked">With so many food options out there nowadays, deciding whether or not to order a pizza can be a stressful and degrading experience.</p>
-
-        <p ng-hide="main.hasUserAsked">Take some of the shame away by letting us decide whether or not you should order one. You have enough to deal with.</p>
-
-        <button
-          ng-hide="main.hasUserAsked"
-          class="pizza-button should-i"
-          ng-click="main.ask('#answer')"
-          analytics-on
-          analytics-category="button"
-          analytics-label="Should I?"
-        >Well, Should I?!</button>
-
-        <h2 id="answer" ng-show="main.showAnswer()" ng-cloak>{{main.answer.text}}</h2>
-        <p ng-show="main.showAnswer()" ng-cloak>{{main.answer.explanation}}</p>
-
-        <button
-          ng-cloak
-          ng-show="main.showFindButton()"
-          class="pizza-button find-pizza"
-          ng-click="main.lookForPizza()"
-          analytics-on
-          analytics-category="button"
-          analytics-label="Find Pizza"
-        >Find Me A Pizza</button>
-
-        <div ng-cloak ng-show="main.isLookingForPizza()" class="loader"></div>
-
-        <p ng-cloak ng-show="main.geolocationError">Sorry pal, no pizza on the moon. Try the <a href="http://lmgtfy.com/?q=pizza&l=1">internet</a>.</p>
-
-        <ul
-          ng-cloak
-          ng-show="main.findUserPizza"
-          class="pizza-results">
-          <li ng-repeat="pizzaJoint in main.pizzaJoints | orderBy:'rating':true">
-            <div class="detail">
-              <h3><a href="#details" ng-click="main.fetchDetails(pizzaJoint)">{{pizzaJoint.name}}</a></h3>
-              <p>{{pizzaJoint.vicinity}}</p>
-              <p><span class="rating"
-                ng-show="pizzaJoint.rating"
-                >{{pizzaJoint.rating}}
-                <span class="stars"><span ng-class="main.roundRating(pizzaJoint.rating)"></span></span></span>
-                {{pizzaJoint.opening_hours.open_now? 'open now': 'currently closed'}}</p>
-              <p><a
-                ng-href="tel:{{pizzaJoint.international_phone_number}}"
-                ng-bind="pizzaJoint.formatted_phone_number"></a></p>
-              <p><a
-                target="_blank"
-                ng-href="{{pizzaJoint.website}}"
-                ng-bind="pizzaJoint.website"></a></p>
-            </div>
-            <div class="detail-right" ng-hide="pizzaJoint.details">
-              <button ng-click="main.fetchDetails(pizzaJoint)">More Details</button>
-            </div>
-          </li>
+        <h2>Contact Us</h2>
+        <p>Getting third party meal decision facilitation is usually pretty straightforward, but if for some wacky reason you want to contact us you can:</p>
+        <ul>
+          <li>go tweet at us on <a href="https://twitter.com/shouldiorder">Twitter</a></li>
+          <li>go gawk at the <a href="https://github.com/Sinetheta/shouldiorderapizza">Github repo</a></li>
+          <li>probably some other way</li>
         </ul>
       </div>
     </div>
     <footer>
       <div class="container">
+
         <p>We made the right decision.</p>
         <ul class="internal-links">
           <li><a href="about.html">About This Thing</a></li>
@@ -128,7 +75,7 @@
           <li><a href="https://twitter.com/shouldiorder" class="fa fa-twitter fa-2x"></a></li>
           <li><a href="https://plus.google.com/share?url=http://www.shouldiorderapizza.com/" onclick="javascript:window.open(this.href, '',
             'menubar=no,toolbar=no,height=600,width=600');return false;" class="fa fa-google-plus fa-2x"></a></li>
-            <li><a href="https://github.com/Sinetheta/shouldiorderapizza" class="fa fa-github fa-2x"></a></li>
+          <li><a href="https://github.com/Sinetheta/shouldiorderapizza" class="fa fa-github fa-2x"></a></li>  
         </ul>
       </div>
     </footer>

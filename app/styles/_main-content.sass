@@ -19,13 +19,18 @@ h2
 
 .grid-right
   width: 65%
-  p
-    opacity: 0
+  opacity: 0
 
-    .ng-scope &
-      opacity: 1
-      transition: opacity 1.5s .3s
+  .ng-scope &
+    opacity: 1
+    transition: opacity 1.5s .3s
 
+  a
+    color: $white
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
 
   @media (max-width: $screen-sm-max)
     float: none
@@ -51,9 +56,9 @@ h2
     margin-top: 10px
 
   @media (max-width: $screen-xs-max)
-    width: 80px
+    width: 90px
     margin-top: -5px
-    margin-left: 5%
+    margin-left: 6%
 
 .pizza-button
   font-family: $font-family-headings
