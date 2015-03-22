@@ -1,4 +1,4 @@
-# ShouldIOrderAPizza.com [![Build Status](http://sinetheta-jenkins.bitnamiapp.com/jenkins/buildStatus/icon?job=shouldiorderapizza)](http://sinetheta-jenkins.bitnamiapp.com/jenkins/job/shouldiorderapizza/)
+# ShouldIOrderAPizza.com [![Build Status](https://travis-ci.org/Sinetheta/shouldiorderapizza.svg)](https://travis-ci.org/Sinetheta/shouldiorderapizza)
 
 Answering the important questions.
 
@@ -18,5 +18,5 @@ build process. Sometimes minification can have unnexpected side-effects.
 
 ## After Committing
 
-Build progress can be monitored at http://jenkins.sinetheta.ca/jenkins/job/shouldiorderapizza/
+Build progress can be monitored at https://travis-ci.org/Sinetheta/shouldiorderapizza
 Healthy builds will be deployed automatically #YOLO
