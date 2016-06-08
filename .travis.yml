@@ -25,3 +25,4 @@ deploy:
   local_dir: dist
   skip_cleanup: true
   acl: public_read
+  cache_control: max-age=0
