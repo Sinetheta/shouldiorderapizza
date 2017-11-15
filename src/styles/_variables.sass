@@ -1,0 +1,56 @@
+//== Colors
+//
+//## Brand colors for use accross the site
+
+$white:                     white
+$gray:                      hsl(0, 0%, 13%)
+$pizza-sauce:               hsl(6, 63%, 46%)
+$lime-gelato:               hsl(145, 63%, 49%)
+$gangrene:                  hsl(210, 29%, 24%)
+$google-bile:               hsl(25, 81%, 51%)
+
+$brand-primary:             $lime-gelato
+$brand-secondary:           $gangrene
+
+$body-bg:                   $pizza-sauce
+$text-color:                $white
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-base:          'Lato', Georgia, 'Times New Roman', Times, serif
+$font-weight-base:          300
+$font-size-base:            18px
+$font-size-large:           24px
+$font-size-small:           12px
+
+//** Unit-less `line-height` for use in text containing elements
+$line-height-base:          1.5
+//** Computed 'line-height' (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:      floor(($font-size-base * $line-height-base))
+
+$font-family-headings:      'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$font-weight-headings:      700
+$line-height-headings:      1.5
+$color-headings:            $brand-primary
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which layout will change, adapting to different screen sizes.
+
+// Extra small screen / shitty phone
+$screen-xs-min:             320px
+// Small screen / phone
+$screen-sm-min:             480px
+// Medium screen / tablet
+$screen-md-min:             768px
+// Large screen / desktop
+$screen-lg-min:             1000px
+
+// For 'max-width' media queries we provide top end of each range
+$screen-xs-max:             ($screen-sm-min - 1)
+$screen-sm-max:             ($screen-md-min - 1)
+$screen-md-max:             ($screen-lg-min - 1)

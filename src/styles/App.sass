@@ -1,0 +1,34 @@
+@import 'variables'
+
+body
+  font-family: $font-family-base
+  font-size: $font-size-base
+  font-weight: $font-weight-base
+  margin: 0
+  padding: 0
+  color: $text-color
+  border-top: .9em solid $brand-primary
+  background-color: $body-bg
+
+p
+  line-height: 1.5
+  margin-top: 1em
+
+ul
+
+  li
+    line-height: 1.5
+    margin-bottom: .5em
+
+button
+  cursor: pointer
+
+.container
+  width: 85%
+  max-width: 1000px
+  margin: 0 auto
+
+@media (max-width: $screen-xs-max)
+  .container .container
+    width: 100%
+    clear: both
