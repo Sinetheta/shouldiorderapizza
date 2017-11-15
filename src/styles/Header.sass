@@ -1,0 +1,90 @@
+@import 'variables'
+
+header
+  text-align: center
+
+h1
+  font-family: $font-family-headings
+  font-size: 4em
+  font-weight: $font-weight-headings
+  line-height: .5
+  text-transform: uppercase
+  text-shadow: 2px 2px 1px darken($body-bg, 10%)
+  opacity: 0
+
+  .ng-scope &
+    opacity: 1
+    transition: opacity 1.5s .3s
+
+  @media (max-width: $screen-md-max)
+    font-size: 3.5em
+
+  @media (max-width: $screen-sm-max)
+    line-height: 1em
+    text-align: left
+
+    span
+      display: block
+
+  @media (max-width: $screen-xs-max)
+    font-size: 2.3em
+
+  a
+    text-decoration: none
+    color: $brand-primary
+
+    em
+      font-style: normal
+      color: $text-color
+
+
+
+$ribbon-color: $white
+$ribbon-line-height: $font-size-base
+$ribbon-padding: round(1.12 * $font-size-base)
+$ribbon-height: $ribbon-line-height + 2 * $ribbon-padding
+
+@keyframes w85
+  from
+    width: 25%
+  to
+    width: 85%
+
+.ribbon
+  line-height: $ribbon-line-height
+  min-height: $ribbon-line-height
+  position: relative
+  width: 85%
+  animation: w85 1s ease forwards
+  margin: 1.75em auto
+  padding: $ribbon-padding 0
+  color: $gray
+  background: $ribbon-color
+
+  @media (max-width: $screen-xs-max)
+    display: none
+
+  &:before, &:after
+    position: absolute
+    z-index: -1
+    top: 0em
+    display: block
+    content: ""
+    border: $ribbon-height/2 solid $ribbon-color
+
+  &:before
+    left: -$ribbon-height * 0.9    // fixes subpixel alignment bug
+    border-left-color: transparent
+
+  &:after
+    right: -$ribbon-height * 0.9    // fixes subpixel alignment bug
+    border-right-color: transparent
+
+.container-mobile
+  margin: 0 auto
+
+  @media (max-width: $screen-sm-max)
+    width: 410px
+
+  @media (max-width: $screen-xs-max)
+    width: 320px
