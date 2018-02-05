@@ -72,13 +72,13 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           open: true,
-          base: ['.tmp', '/bower_components', appConfig.app],
+          base: ['.tmp', 'bower_components', appConfig.app],
         }
       },
       test: {
         options: {
           port: 9001,
-          base: ['.tmp', 'test', '/bower_components', appConfig.app],
+          base: ['.tmp', 'test', 'bower_components', appConfig.app],
         }
       },
       dist: {
