@@ -17,9 +17,9 @@ script: grunt --force
 
 deploy:
   provider: s3
-  access_key_id: AKIAIY6GS62P3XUFWMPA
+  access_key_id: AKIATTEYYVIMBB3Y6ZFO
   secret_access_key:
-    secure: "mAnoc9K2Xd1vQ+NSJ267mr26SFyAFlP+6O43OY4B/B6Q7QZaincy5PdjSH9nU4jUTTdgDevqaXOWcr1IDhFrmpDcCl4yDlcJu8q902uSz2UTUEV7GQgV+1qw+YLODjeBYD2JsRTpy9awURHKxSX+6ultB6z4I4gk9sOkMYqkgsA="
+    secure: "OdwlfcfNRShr/jxuqwsxt+rO/Gzpo+KMce6zNpwZsS0Y9thZn6JBLvGQOI+34xKXTm/v5fgckvpzZ11QpMD4JKjsdMRUIWo/tetn4MMUjmSCAM4vHJM8XrZb+P5dDikNn6ly1CYaGlQU5XEVN0LEhDjXiFYwxrQVFtK3BIvzdNk="
   bucket: www.shouldiorderapizza.com
   region: us-east-1
   local_dir: dist
