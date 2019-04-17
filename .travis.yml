@@ -13,7 +13,7 @@ install:
   - npm install
   - bower install
 
-script: grunt
+script: grunt --force
 
 deploy:
   provider: s3
